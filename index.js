@@ -2,10 +2,13 @@ const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 const fs = require('node:fs');
 const path = require('node:path');
+const express = require('express');
 
 const { registrarCobrar } = require("./tasks");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const webServer = express();
+const port = process.env.PORT || 4000;
 
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
@@ -43,3 +46,9 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(token);
+
+webServer.get("/", (req, res) => {
+	res.send("No deberias estar aca >:v");
+});
+
+webServer.listen(port, () => console.log("Listening in port: " + port))

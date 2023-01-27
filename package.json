@@ -1,0 +1,16 @@
+{
+  "name": "cobrar-bot",
+  "version": "1.0.0",
+  "description": "bot de discord para cobrar las subscripciones de spotify",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "node-schedule": "^2.1.0"
+  }
+}
